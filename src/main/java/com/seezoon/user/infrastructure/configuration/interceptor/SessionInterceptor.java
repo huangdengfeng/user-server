@@ -38,7 +38,7 @@ public class SessionInterceptor implements HandlerInterceptor {
             return false;
         }
         // 放入uid 到上下文
-        SecurityContextHolder.setUid(Integer.parseInt(uid));
+        SecurityContextHolder.setUid(Long.parseLong(uid));
         return true;
     }
 

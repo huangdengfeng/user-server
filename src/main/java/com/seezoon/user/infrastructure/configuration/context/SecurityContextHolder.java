@@ -2,13 +2,13 @@ package com.seezoon.user.infrastructure.configuration.context;
 
 public class SecurityContextHolder {
 
-    private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    private static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
 
-    public static Integer getUid() {
+    public static Long getUid() {
         return threadLocal.get();
     }
 
-    public static void setUid(Integer uid) {
+    public static void setUid(Long uid) {
         threadLocal.set(uid);
     }
 

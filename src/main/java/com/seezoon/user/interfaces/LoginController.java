@@ -3,6 +3,7 @@ package com.seezoon.user.interfaces;
 import com.seezoon.user.application.dto.WxMiniappLoginCmd;
 import com.seezoon.user.application.dto.clientobject.WxMiniappLoginCO;
 import com.seezoon.user.application.executor.WxMiniappLoginExe;
+import com.seezoon.user.infrastructure.dto.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +20,8 @@ public class LoginController {
     private final WxMiniappLoginExe wxMiniappLoginExe;
 
     @PostMapping("/wx_miniapp_login")
-    public WxMiniappLoginCO wxMiniappLogin(@RequestBody WxMiniappLoginCmd cmd) {
+    public Response<WxMiniappLoginCO> wxMiniappLogin(@RequestBody WxMiniappLoginCmd cmd) {
         WxMiniappLoginCO co = wxMiniappLoginExe.execute(cmd);
-        return co;
+        return Response.success(co);
     }
 }
