@@ -14,7 +14,8 @@ public enum ErrorCode implements ErrorDefinition {
     ASSERTION_ERROR(1003, "assertion error"),
     RPC_ERROR(1004, "远程调用错误"),
 
-    WX_ERROR(3000, "调用微信出错，请联系管理员");
+    WX_ERROR(3000, "调用微信出错，请联系管理员"),
+    USER_PWD_ERROR(3001, "账号密码错误，错误6次后将锁定");
 
 
     public static final int ERROR_TYPE_BUSINESS = 0;
