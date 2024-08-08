@@ -7,8 +7,8 @@ import com.seezoon.user.domain.dao.mapper.UserProfileMapper;
 import com.seezoon.user.domain.dao.po.OauthPO;
 import com.seezoon.user.domain.dao.po.UserPO;
 import com.seezoon.user.domain.dao.po.UserProfilePO;
-import com.seezoon.user.domain.dao.valueobj.OauthType;
-import com.seezoon.user.domain.dao.valueobj.UserStatus;
+import com.seezoon.user.domain.valueobj.OauthType;
+import com.seezoon.user.domain.valueobj.UserStatus;
 import com.seezoon.user.infrastructure.constants.DbRecordStatus;
 import com.seezoon.user.infrastructure.exception.Assertion;
 import jakarta.validation.constraints.NotEmpty;
@@ -39,8 +39,8 @@ public class RegistUserService {
         user.setStatus(UserStatus.VALID);
         user.setCreateTime(LocalDateTime.now());
         user.setUpdateTime(user.getCreateTime());
-        int affectRows = userMapper.insert(user);
-        Assertion.affectOne(affectRows);
+        int affectedRows = userMapper.insert(user);
+        Assertion.affectedOne(affectedRows);
         Assertion.notNull(user.getUid());
 
         this.saveOauth(user.getUid(), oauthType.type(), oauthId, unionId);
@@ -58,8 +58,8 @@ public class RegistUserService {
         po.setStatus(DbRecordStatus.VALID);
         po.setCreateTime(LocalDateTime.now());
         po.setUpdateTime(po.getCreateTime());
-        int affectRows = oauthMapper.insert(po);
-        Assertion.affectOne(affectRows);
+        int affectedRows = oauthMapper.insert(po);
+        Assertion.affectedOne(affectedRows);
     }
 
     private void saveProfile(Long uid) {
@@ -67,8 +67,8 @@ public class RegistUserService {
         po.setUid(uid);
         po.setCreateTime(LocalDateTime.now());
         po.setUpdateTime(po.getCreateTime());
-        int affectRows = userProfileMapper.insert(po);
-        Assertion.affectOne(affectRows);
+        int affectedRows = userProfileMapper.insert(po);
+        Assertion.affectedOne(affectedRows);
     }
 
     private String genSecretKey() {

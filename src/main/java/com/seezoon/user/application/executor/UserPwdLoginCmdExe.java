@@ -23,7 +23,7 @@ import org.springframework.validation.annotation.Validated;
 @Slf4j
 @Component
 @Validated
-public class UserPwdLoginExe {
+public class UserPwdLoginCmdExe {
 
     private final UserPasswdVerifyService userPasswdVerifyService;
     private final AppProperties appProperties;

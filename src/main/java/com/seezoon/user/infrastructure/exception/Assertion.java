@@ -28,10 +28,10 @@ public abstract class Assertion {
         isTrue(expression, "[Assertion failed] Must be true");
     }
 
-    public static void affectOne(int affectRows) {
-        isTrue(affectRows == 1, "expect affects one,actual " + affectRows);
+    public static void affectedOne(int affectedRows) {
+        isTrue(affectedRows == 1, "expect affected one,actual " + affectedRows);
     }
-    
+
     public static void notNull(Object object, int code, String msg) {
         if (object == null) {
             throw new BizException(code, msg);

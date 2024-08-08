@@ -15,7 +15,10 @@ public enum ErrorCode implements ErrorDefinition {
     RPC_ERROR(1004, "远程调用错误"),
 
     WX_ERROR(3000, "调用微信出错，请联系管理员"),
-    USER_PWD_ERROR(3001, "账号密码错误，错误6次后将锁定");
+    USER_PWD_ERROR(3001, "账号密码错误，错误6次后将锁定"),
+    FILE_UPLOAD_FAILED(3002, "文件上传错误，请重试"),
+    FILE_NOT_EXISTS(3003, "文件不存在"),
+    FILE_SIZE_INVALID(3004, "文件大小不合法");
 
 
     public static final int ERROR_TYPE_BUSINESS = 0;

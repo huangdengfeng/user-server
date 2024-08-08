@@ -1,4 +1,4 @@
-package com.seezoon.user.domain.dao.valueobj;
+package com.seezoon.user.domain.valueobj;
 
 public enum OauthType {
 

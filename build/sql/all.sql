@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user`
 (
     `uid`         bigint      NOT NULL AUTO_INCREMENT,
-    `user_name`   varchar(100) DEFAULT NULL,
+    `username`    varchar(100) DEFAULT NULL,
     `password`    varchar(100) DEFAULT NULL,
     `secret_key`  varchar(32) NOT NULL,
     `status`      tinyint     NOT NULL,

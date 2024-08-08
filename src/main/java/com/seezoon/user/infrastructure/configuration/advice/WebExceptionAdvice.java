@@ -13,6 +13,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import java.sql.SQLException;
 
@@ -56,7 +57,13 @@ public class WebExceptionAdvice {
     @ExceptionHandler({SQLException.class, TransactionException.class})
     public Response sqlException(Exception e) {
         log.error("sql exception", e);
-        return Response.error(ErrorCode.SQL_ERROR.code(), String.format(ErrorCode.SQL_ERROR.msg(), e.getMessage()));
+        return Response.error(ErrorCode.SQL_ERROR.code(), ErrorCode.SQL_ERROR.msg());
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public Response uploadException(MaxUploadSizeExceededException e) {
+        log.error("upload exception {}", e.getMessage());
+        return Response.error(ErrorCode.FILE_SIZE_INVALID.code(), ErrorCode.FILE_SIZE_INVALID.msg());
     }
 
     @ExceptionHandler(BizException.class)

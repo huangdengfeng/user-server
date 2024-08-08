@@ -3,7 +3,7 @@
 <mapper namespace="com.seezoon.user.domain.dao.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.seezoon.user.domain.dao.po.UserPO">
         <id column="uid" jdbcType="BIGINT" property="uid"/>
-        <result column="user_name" jdbcType="VARCHAR" property="username"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="secret_key" jdbcType="VARCHAR" property="secretKey"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
@@ -26,7 +26,7 @@
         from t_user
         where username = #{username}
     </select>
-    
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
         from t_user

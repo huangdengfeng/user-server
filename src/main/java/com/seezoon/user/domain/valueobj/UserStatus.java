@@ -1,4 +1,4 @@
-package com.seezoon.user.domain.dao.valueobj;
+package com.seezoon.user.domain.valueobj;
 
 public class UserStatus {
     /**
@@ -9,5 +9,5 @@ public class UserStatus {
      * 无效
      */
     public static final byte INVALID = 2;
-    
+
 }

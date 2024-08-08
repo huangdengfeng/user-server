@@ -4,8 +4,8 @@ import com.seezoon.user.application.dto.WxMiniappLoginCmd;
 import com.seezoon.user.application.dto.clientobject.WxMiniappLoginCO;
 import com.seezoon.user.domain.dao.mapper.OauthMapper;
 import com.seezoon.user.domain.dao.po.OauthPO;
-import com.seezoon.user.domain.dao.valueobj.OauthType;
 import com.seezoon.user.domain.service.RegistUserService;
+import com.seezoon.user.domain.valueobj.OauthType;
 import com.seezoon.user.infrastructure.error.ErrorCode;
 import com.seezoon.user.infrastructure.exception.Assertion;
 import com.seezoon.user.infrastructure.exception.ExceptionFactory;
@@ -28,7 +28,7 @@ import org.springframework.validation.annotation.Validated;
 @Slf4j
 @Component
 @Validated
-public class WxMiniappLoginExe {
+public class WxMiniappLoginCmdExe {
 
     private final Code2SessionService code2SessionService;
     private final AppProperties appProperties;

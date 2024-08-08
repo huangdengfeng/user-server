@@ -44,9 +44,9 @@ public class JwtService implements InitializingBean {
         try {
             VerifyResp verifyResp = stub.verify(VerifyReq.newBuilder().setToken(token).build());
             if (verifyResp.getValid()) {
-                log.info("jwt invalid {}", token);
                 return verifyResp.getJwtInfo().getSub();
             }
+            log.info("jwt invalid {}", token);
             return null;
         } catch (Exception e) {
             log.error("verify error {}", e.getMessage());

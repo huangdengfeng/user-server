@@ -37,9 +37,10 @@
         </javaClientGenerator>
         <table enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"
-               tableName="t_user">
+               tableName="t_record">
             <!--自增返回主键 -->
-            <generatedKey column="uid" sqlStatement="JDBC"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
         </table>
     </context>

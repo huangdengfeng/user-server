@@ -30,4 +30,8 @@ public class AppProperties {
     @NestedConfigurationProperty
     private CorsProperties cors = new CorsProperties();
 
+    @Valid
+    @NotNull
+    @NestedConfigurationProperty
+    private UploadProperties upload = new UploadProperties();
 }
