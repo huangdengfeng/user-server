@@ -8,6 +8,7 @@ import com.seezoon.user.infrastructure.exception.ExceptionFactory;
 import com.seezoon.user.infrastructure.properties.AppProperties;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
@@ -32,7 +33,7 @@ public class UploadCmdExe {
 
     private final AppProperties appProperties;
 
-    public UploadCO execute(@Valid UploadCmd cmd) {
+    public UploadCO execute(@Valid @NotNull UploadCmd cmd) {
         String directory = appProperties.getUpload().getDirectory();
         Assertion.notNull(directory, "upload directory is empty");
         String fileId = createFileId();

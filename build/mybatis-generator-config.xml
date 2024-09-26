@@ -10,9 +10,9 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <jdbcConnection
-                connectionURL="jdbc:mysql://127.0.0.1:3306/user_db"
+                connectionURL="jdbc:mysql://9.135.14.136:3306/key_mgr"
                 driverClass="com.mysql.cj.jdbc.Driver"
-                password="12345678"
+                password="root1234"
                 userId="root">
             <!-- 只获取当前指定库的表-->
             <property name="nullCatalogMeansCurrent" value="true"/>
@@ -37,11 +37,10 @@
         </javaClientGenerator>
         <table enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"
-               tableName="t_record">
-            <!--自增返回主键 -->
-            <generatedKey column="id" sqlStatement="JDBC"/>
-
+               tableName="t_base_hash_version">
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
+            <columnRenamingRule searchString="^F" replaceString=""/>
+
         </table>
     </context>
 </generatorConfiguration>

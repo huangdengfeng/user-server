@@ -15,6 +15,7 @@ import com.seezoon.user.infrastructure.rpc.jwt.JwtService;
 import com.seezoon.user.infrastructure.rpc.wx.Code2SessionService;
 import com.seezoon.user.infrastructure.rpc.wx.dto.Code2SessionResp;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -36,7 +37,7 @@ public class WxMiniappLoginCmdExe {
     private final RegistUserService registUserService;
     private final OauthMapper oauthMapper;
 
-    public WxMiniappLoginCO execute(@Valid WxMiniappLoginCmd cmd) {
+    public WxMiniappLoginCO execute(@Valid @NotNull WxMiniappLoginCmd cmd) {
         LoginProperties login = appProperties.getLogin();
         Code2SessionResp resp = code2SessionService.execute(login.getWxAppId(), login.getWxSecret(), cmd.getCode());
         if (!resp.success()) {

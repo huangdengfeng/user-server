@@ -1,5 +1,8 @@
 package com.seezoon.user.domain.dao.po;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 public class RecordPO {
@@ -82,4 +85,14 @@ public class RecordPO {
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Getter
+    @Setter
+    public static class Condition {
+
+        private Long uid;
+        private Byte type;
+        private Byte status;
+    }
 }
+

@@ -11,6 +11,7 @@ import com.seezoon.user.infrastructure.properties.AppProperties;
 import com.seezoon.user.infrastructure.properties.LoginProperties;
 import com.seezoon.user.infrastructure.rpc.jwt.JwtService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,7 @@ public class UserPwdLoginCmdExe {
     private final UserMapper userMapper;
 
 
-    public UserPwdLoginCO execute(@Valid UserPwdLoginCmd cmd) {
+    public UserPwdLoginCO execute(@Valid @NotNull UserPwdLoginCmd cmd) {
         UserPO po = userMapper.selectByUsername(cmd.getUsername());
         if (null == po) {
             log.info("login user not exists [%s]", cmd.getUsername());
